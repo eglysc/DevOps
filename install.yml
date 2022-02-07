@@ -1,0 +1,79 @@
+---
+- name: Preparando Workstation
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Instalando Vim Htop Curl Wget e Flameshot
+      become: true
+      apt:
+        name: '{{ item }}'
+        install_recommends: yes
+        state: present
+      loop:
+          - vim
+          - htop
+          - curl
+          - wget
+          - flameshot
+
+    - block:
+      - name: Instalando Chaves Google
+        become: true
+        apt_key: 
+          url: 'https://dl.google.com/linux/linux_signing_key.pub'
+          state: present
+      - name: Instalando Repositório Google
+        become: true
+        apt_repository:
+          repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+          state: present
+          filename: google-chrome
+      - name: Instalando Google Chrome
+        become: true
+        apt:
+          name: google-chrome-stable
+    
+    - block:
+      - name: Instalando Chaves Microsoft
+        become: true
+        apt_key:
+          url: 'https://packages.microsoft.com/keys/microsoft.asc'
+          state: present
+      - name: Instalando Repositório VSCode
+        become: true
+        apt_repository:
+          repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+          state: present
+          filename: vscode
+      - name: Instalando Visual Studio Code
+        become: true
+        apt:
+          name: code
+
+    - block:
+      - name: Adicionando  Repositório Ulauncher 
+        become: true
+        apt_repository:
+          repo: 'ppa:agornostal/ulauncher'
+      - name: Install Ulauncher
+        become: true
+        apt:
+          name: ulauncher
+
+    - name: Instalando Anydesk
+      become: true
+      apt:
+        deb: https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb
+
+    - name: Instalando Zoom
+      become: true
+      apt:
+        deb: https://zoom.us/client/latest/zoom_amd64.deb
+
+    - name: Instalando Slack
+      become: true
+      apt:
+        deb: https://downloads.slack-edge.com/releases/linux/4.23.0/prod/x64/slack-desktop-4.23.0-amd64.deb
+  
+  
