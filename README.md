@@ -4,7 +4,7 @@
 > Esse scripts está relacionado a execução no Ubuntu 20.04, para outras distribuições, necessário adaptá-lo.
 
 ## Preparando Workstation
-> Leia o arquivo `install.yml` antes de aplicá-lo e entada tudo qe será feito
+> Leia o arquivo `install.yml` antes de aplicá-lo e entada tudo que será feito
 
 1. Execute um update e instale o Ansible e git
 ```bash
