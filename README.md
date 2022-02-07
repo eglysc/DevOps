@@ -17,6 +17,6 @@ git clone https://github.com/eglysc/DevOps.git
 
 3. Execute a configuração
 ```bash
-ansible-playbook tools/install.yml --ask-become-pass
+ansible-playbook DevOps/install.yml --ask-become-pass
 ```
 >Digite sua senha quando solicitado a dar permissões de root para algumas ações.
