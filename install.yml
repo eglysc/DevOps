@@ -4,7 +4,7 @@
   connection: local
   tasks:
 
-    - name: Instalando Vim Htop Curl Wget e Flameshot
+    - name: Instalando Vim Htop Curl Wget  phyton e Flameshot
       become: true
       apt:
         name: '{{ item }}'
@@ -16,6 +16,7 @@
           - curl
           - wget
           - flameshot
+          - phyton3
 
     - block:
       - name: Instalando Chaves Google
