@@ -20,5 +20,3 @@ git clone https://github.com/eglysc/DevOps.git
 ansible-playbook DevOps/install.yml --ask-become-pass
 ```
 >Digite sua senha quando solicitado a dar permissões de root para algumas ações.
-
-#Fim do Script
